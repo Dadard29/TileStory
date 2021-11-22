@@ -1,20 +1,22 @@
-extends Node2D
+extends AnimatedSprite
 
-onready var animations = $Animations
+const _ANIMATION_IDLE = "idle"
+const _ANIMATION_MOVE_RIGHT = "move_right"
 
-const ANIMATION_IDLE = "idle"
-const ANIMATION_MOVE = "move"
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
+func idle():
+	print("changed anim: idle")
+	self.play(_ANIMATION_IDLE)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func move_left():
+	print("changed anim: move left")
+	self.play(_ANIMATION_MOVE_RIGHT)
+	self.set_flip_h(true)
+	
+func move_right():
+	print("changed anim: move right")
+	self.play(_ANIMATION_MOVE_RIGHT)
+	self.set_flip_h(false)
+

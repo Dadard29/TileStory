@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://images/player/animations/idle/player_frame0002.png" type="Texture" id=1]
 [ext_resource path="res://images/player/animations/idle/player_frame0001.png" type="Texture" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://images/player/animations/idle/player_frame0003.png" type="Texture" id=6]
 [ext_resource path="res://images/player/animations/move_left/player_frame0013.png" type="Texture" id=7]
 [ext_resource path="res://images/player/animations/idle/player_frame0000.png" type="Texture" id=8]
-[ext_resource path="res://resources/JumpAnimationFrames.tres" type="SpriteFrames" id=9]
 [ext_resource path="res://scripts/PlayerAnimations.gd" type="Script" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -20,7 +19,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "move",
+"name": "move_right",
 "speed": 5.0
 } ]
 
@@ -30,18 +29,5 @@ script = ExtResource( 10 )
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
-
-[node name="JumpAnimation" type="Node2D" parent="."]
-
-[node name="JumpAnimationRight" type="AnimatedSprite" parent="JumpAnimation"]
-position = Vector2( 32, 0 )
-frames = ExtResource( 9 )
-animation = "jump"
-
-[node name="JumpAnimationLeft" type="AnimatedSprite" parent="JumpAnimation"]
-position = Vector2( -32, 0 )
-frames = ExtResource( 9 )
-animation = "jump"
-flip_h = true

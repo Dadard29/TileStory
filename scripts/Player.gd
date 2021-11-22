@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var GUI = $GUI
+onready var GUI = $Gui
 
 signal jumped
 
@@ -8,6 +8,5 @@ signal jumped
 func _ready():
 	pass # Replace with function body.
 
-
-func _on_PlayerControl_jumped(position: Vector2):
+func _on_Kinematic_jumped(position: Vector2):
 	emit_signal("jumped", position)

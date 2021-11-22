@@ -4,15 +4,15 @@ export var GRAVITY = 2000
 export var SPEED = Vector2(400, 800)
 export var ENERGY = 0
 
+const ENERGY_SMALL_GROUP = "energy_small"
+
 var FLOOR_NORMAL = Vector2.UP
 var _velocity = Vector2.ZERO
 var _moving = false
 
-const ENERGY_SMALL_GROUP = "energy_small"
+onready var anim = $Animations
 
 signal jumped
-signal moving
-signal idle
 
 func _ready():
 	pass # Replace with function body.
@@ -53,9 +53,16 @@ func set_state_signal(direction):
 	# changed state
 	if _moving_previous != _moving:
 		if _moving:
-			emit_signal("moving")
+			if direction.x < 0:
+				anim.move_left()
+			else:
+				anim.move_right()
 		else:
-			emit_signal("idle")
+			anim.idle()
+	
+	if direction.y == -1:
+		var position = get_global_position()
+		emit_signal("jumped", position)
 	
 #func set_animation(direction: Vector2):
 #	var animation = ANIMATION_IDLE
