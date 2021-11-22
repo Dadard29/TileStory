@@ -47,6 +47,8 @@ current = true
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 script = ExtResource( 10 )
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_DetectionArea_area_entered"]
