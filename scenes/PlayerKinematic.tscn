@@ -47,7 +47,6 @@ current = true
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "idle"
-frame = 1
 playing = true
 script = ExtResource( 10 )
 

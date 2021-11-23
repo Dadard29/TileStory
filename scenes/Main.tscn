@@ -9,7 +9,7 @@
 [node name="World" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 220.943, 456.14 )
+position = Vector2( 352, 336 )
 
 [node name="PlayerEvents" parent="." instance=ExtResource( 3 )]
 

@@ -11,4 +11,5 @@ script = ExtResource( 9 )
 
 [node name="Kinematic" parent="." instance=ExtResource( 1 )]
 
+[connection signal="energy_changed" from="Kinematic" to="." method="_on_Kinematic_energy_changed"]
 [connection signal="jumped" from="Kinematic" to="." method="_on_Kinematic_jumped"]
