@@ -35,6 +35,8 @@ func _ready():
 		DEFAULT_ORIENT_TYPE
 	)
 	
+	self.anim.set_orient_type(DEFAULT_ORIENT_TYPE)
+	
 func manage_gravity_switch():
 	if self.velocity.is_falling_with_max_speed(_velocity, is_on_floor(), 200, 600):
 		if self._modulate_set == false:
@@ -53,6 +55,7 @@ func manage_gravity_switch():
 		if new_orient_type != self.direction._type:
 			self.velocity.set_orient_type(new_orient_type)
 			self.direction.set_orient_type(new_orient_type)
+			self.anim.set_orient_type(new_orient_type)
 
 	else:
 		if self._modulate_set == true:
