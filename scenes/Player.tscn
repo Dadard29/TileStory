@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/PlayerKinematic.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/Player.gd" type="Script" id=9]
+[ext_resource path="res://scripts/nodes/Player.gd" type="Script" id=9]
 [ext_resource path="res://scenes/Gui.tscn" type="PackedScene" id=10]
 
 [node name="Player" type="Node2D"]

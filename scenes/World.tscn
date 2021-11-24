@@ -2,7 +2,7 @@
 
 [ext_resource path="res://images/tilemaps/tilemap.png" type="Texture" id=1]
 [ext_resource path="res://scenes/EnergySmall.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/WorldEnergy.gd" type="Script" id=3]
+[ext_resource path="res://scripts/nodes/WorldEnergy.gd" type="Script" id=3]
 [ext_resource path="res://scenes/EnergyMedium.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
