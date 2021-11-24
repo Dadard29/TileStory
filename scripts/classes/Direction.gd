@@ -10,12 +10,14 @@ class DIRECTION_CLASS:
 	var _left_side_key: String
 	var _right_side_key: String
 	
+	const _slow_key = "ui_accept"
+	
 	var ORIENT_T = preload("res://scripts/classes/OrientationsType.gd").ORIENT_TYPE
 	
 	func _init(type):
-		self._update_orient_type(type)
+		self.set_orient_type(type)
 	
-	func _update_orient_type(type):
+	func set_orient_type(type):
 		self._type = type
 		if self._type == ORIENT_T.UP:
 			self._jump_key = _ui_up
@@ -103,3 +105,32 @@ class DIRECTION_CLASS:
 			is_moving_side_b = direction.y != 0
 		
 		return is_moving_side_b
+		
+	func is_slowing_input() -> bool:
+		return Input.is_action_just_pressed(self._slow_key)
+	
+	func switch_input():
+		var is_still_slowing = Input.is_action_pressed(self._slow_key)
+		var new_orient
+		if is_still_slowing:
+			if Input.is_action_just_pressed(self._ui_right):
+				new_orient = ORIENT_T.LEFT
+			
+			elif Input.is_action_just_pressed(self._ui_left):
+				new_orient = ORIENT_T.RIGHT
+			
+			elif Input.is_action_just_pressed(self._ui_down):
+				new_orient = ORIENT_T.UP
+			
+			elif Input.is_action_just_pressed(self._ui_up):
+				new_orient = ORIENT_T.DOWN
+			
+			else:
+				new_orient = self._type
+			
+		else:
+			new_orient = self._type
+				
+		
+		return new_orient
+			

@@ -7,6 +7,7 @@ export var SPEED_JUMP = 800
 const ENERGY_GROUP = "energy"
 var _velocity = Vector2.ZERO
 var _moving = false
+var _modulate_set = false
 
 onready var anim = $Animations
 
@@ -33,21 +34,36 @@ func _ready():
 	self.direction = DIRECTION_C.new(
 		DEFAULT_ORIENT_TYPE
 	)
+	
+func manage_gravity_switch():
+	if self.velocity.is_falling_with_max_speed(_velocity, is_on_floor(), 200, 600):
+		if self._modulate_set == false:
+			self.set_modulate(Color.black)
+			self._modulate_set = true
+		
+		if self.direction.is_slowing_input():
+			_velocity = Vector2.ZERO
+			self.set_modulate(Color.green)
+			self.velocity.speed_slow(0.05)
+
+		elif Input.is_action_just_released("ui_accept"):
+			self.velocity.speed_reset()
+			
+		var new_orient_type = self.direction.switch_input()
+		if new_orient_type != self.direction._type:
+			self.velocity.set_orient_type(new_orient_type)
+			self.direction.set_orient_type(new_orient_type)
+
+	else:
+		if self._modulate_set == true:
+			self.set_modulate(Color.white)
+			self._modulate_set = false
+			self.velocity.speed_reset()
 
 # main loop
 func _physics_process(delta):
-	if self.velocity.is_in_the_air_almost_stopped(_velocity, 600, is_on_floor()):
-		self.set_modulate(Color.black)
-	else:
-		self.set_modulate(Color.white)
-		
-		# self.velocity.speed_slow(0.05)
-	
-#	if Input.is_action_just_pressed("ui_accept"):
-#
-#	elif Input.is_action_just_released("ui_accept"):
-#		print("released")
-#		self.velocity.speed_reset()
+	# manage special case to switch gravity orientation
+	self.manage_gravity_switch()
 	
 	# compute direction
 	var _direction = self.direction.get_direction(is_on_floor())

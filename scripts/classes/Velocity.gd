@@ -14,7 +14,7 @@ class VELOCITY_CLASS:
 	const JUMP_INTERRUPTION_SLOW = 0.6
 	
 	func _init(type, speed_side, speed_jump, gravity):
-		self._update_orient_type(type)
+		self.set_orient_type(type)
 		
 		self._speed_side_default = speed_side
 		self._speed_jump_default = speed_jump
@@ -34,7 +34,7 @@ class VELOCITY_CLASS:
 		self._speed_jump = self._speed_jump_default
 		self._gravity = self._gravity_default
 	
-	func _update_orient_type(type):
+	func set_orient_type(type):
 		self._type = type
 		if self._type == ORIENT_T.UP:
 			self._floor_normal = Vector2.UP
@@ -137,6 +137,23 @@ class VELOCITY_CLASS:
 			is_jumping_b = velocity.x < 0
 		
 		return is_jumping_b
+	
+	func is_falling_with_max_speed(velocity: Vector2, is_on_floor: bool, min_speed: float, max_speed: float) -> bool:
+		var is_falling_b: bool
+		if self._type == ORIENT_T.UP:
+			is_falling_b = velocity.y > -min_speed and velocity.y < max_speed
+		
+		elif self._type == ORIENT_T.DOWN:
+			is_falling_b = velocity.y < min_speed and velocity.y > -max_speed
+		
+		elif self._type == ORIENT_T.RIGHT:
+			is_falling_b = velocity.x < min_speed and velocity.x > -max_speed
+		
+		elif self._type == ORIENT_T.LEFT:
+			is_falling_b = velocity.x > -min_speed and velocity.x < max_speed
+		
+		var not_on_floor = not is_on_floor
+		return is_falling_b and not_on_floor
 	
 	func apply_jump_interruption(l_velocity: Vector2) -> Vector2:
 		var velocity = l_velocity
