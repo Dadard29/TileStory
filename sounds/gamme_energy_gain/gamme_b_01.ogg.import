@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gamme_b_01.ogg-65ea3687240425bab95287e361957345.oggstr"
+
+[deps]
+
+source_file="res://sounds/gamme_energy_gain/gamme_b_01.ogg"
+dest_files=[ "res://.import/gamme_b_01.ogg-65ea3687240425bab95287e361957345.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
