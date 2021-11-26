@@ -1,14 +1,17 @@
-[gd_resource type="SpriteFrames" load_steps=6 format=2]
+[gd_resource type="SpriteFrames" load_steps=9 format=2]
 
-[ext_resource path="res://images/player/animations/jump/player_frame0026.png" type="Texture" id=1]
-[ext_resource path="res://images/player/animations/jump/player_frame0028.png" type="Texture" id=2]
-[ext_resource path="res://images/player/animations/jump/player_frame0024.png" type="Texture" id=3]
-[ext_resource path="res://images/player/animations/jump/player_frame0025.png" type="Texture" id=4]
-[ext_resource path="res://images/player/animations/jump/player_frame0027.png" type="Texture" id=5]
+[ext_resource path="res://images/player/animations/jump/jump_frame0003.png" type="Texture" id=1]
+[ext_resource path="res://images/player/animations/jump/jump_frame0005.png" type="Texture" id=2]
+[ext_resource path="res://images/player/animations/jump/jump_frame0007.png" type="Texture" id=3]
+[ext_resource path="res://images/player/animations/jump/jump_frame0000.png" type="Texture" id=4]
+[ext_resource path="res://images/player/animations/jump/jump_frame0002.png" type="Texture" id=5]
+[ext_resource path="res://images/player/animations/jump/jump_frame0004.png" type="Texture" id=6]
+[ext_resource path="res://images/player/animations/jump/jump_frame0006.png" type="Texture" id=7]
+[ext_resource path="res://images/player/animations/jump/jump_frame0001.png" type="Texture" id=8]
 
 [resource]
 animations = [ {
-"frames": [ null, ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 2 ), null ],
+"frames": [ null, ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 3 ), null ],
 "loop": false,
 "name": "jump",
 "speed": 16.0
