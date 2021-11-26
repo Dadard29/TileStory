@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/spawn.mp3-26db366aaa8921126e20b6146209bdd0.mp3str"
+
+[deps]
+
+source_file="res://sounds/spawn.mp3"
+dest_files=[ "res://.import/spawn.mp3-26db366aaa8921126e20b6146209bdd0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
