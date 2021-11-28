@@ -17,9 +17,7 @@ animations = [ {
 [node name="EnergyBase" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="Area2D" type="Area2D" parent="." groups=[
-"energy",
-]]
+[node name="Area2D" type="Area2D" parent="." groups=["energy"]]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -28,3 +26,7 @@ shape = SubResource( 1 )
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

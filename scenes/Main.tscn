@@ -1,20 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/World.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/PlayerEvents.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sounds/bg_music_loop.mp3" type="AudioStream" id=4]
 
 [node name="Main" type="Node2D"]
 
 [node name="World" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 352, 336 )
+position = Vector2( 216, 392 )
 
 [node name="PlayerEvents" parent="." instance=ExtResource( 3 )]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
 
 [connection signal="jumped" from="Player" to="PlayerEvents" method="_on_Player_jumped"]

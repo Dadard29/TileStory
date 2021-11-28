@@ -4,6 +4,8 @@ const ORIENT_T = preload("res://scripts/classes/OrientationsType.gd").ORIENT_TYP
 
 const _ANIMATION_IDLE = "idle"
 const _ANIMATION_MOVE_RIGHT = "move_right"
+const _ANIMATION_SWITCH_AVAILABLE = "switch_available"
+const _ANIMATION_SWITCHED = "switched"
 
 var _moving: bool = false
 var _is_inverted: bool = false
@@ -11,7 +13,7 @@ var _is_inverted: bool = false
 func _ready():
 	pass
 
-func _idle():
+func set_idle():
 	self.play(_ANIMATION_IDLE)
 
 func _move_left():
@@ -21,6 +23,12 @@ func _move_left():
 func _move_right():
 	self.play(_ANIMATION_MOVE_RIGHT)
 	self.set_flip_h(self._is_inverted)
+	
+func set_switch_available():
+	self.play(_ANIMATION_SWITCH_AVAILABLE)
+
+func set_switched():
+	self.play(_ANIMATION_SWITCHED)
 
 func set_moving_animation(is_moving: bool, is_moving_left: bool, is_moving_right: bool):
 	var _moving_previous = _moving
@@ -35,7 +43,7 @@ func set_moving_animation(is_moving: bool, is_moving_left: bool, is_moving_right
 				self._move_right()
 				
 		else:
-			self._idle()
+			self.set_idle()
 
 func set_orient_type(orient_type):
 	if orient_type == ORIENT_T.UP:
