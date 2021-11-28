@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/nodes/Gui.gd" type="Script" id=1]
+[ext_resource path="res://images/player/gui/bar_under.png" type="Texture" id=2]
+[ext_resource path="res://images/player/gui/bar_over.png" type="Texture" id=3]
+[ext_resource path="res://images/player/gui/bar_progress.png" type="Texture" id=4]
+[ext_resource path="res://scripts/nodes/EnergyAmount.gd" type="Script" id=5]
+[ext_resource path="res://images/player/gui/space_key.png" type="Texture" id=6]
+[ext_resource path="res://resources/SwitchArrowAnimation.tres" type="Texture" id=7]
+[ext_resource path="res://resources/Font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://images/player/gui/interact.png" type="Texture" id=9]
 
 [node name="Gui" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -12,13 +20,122 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EneryAmount" type="ProgressBar" parent="Base"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 312.0
-margin_bottom = 30.0
+[node name="EnergyAmount" type="TextureProgress" parent="Base"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 506.0
+margin_bottom = 61.0
 max_value = 20.0
-step = 1.0
+step = 0.05
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+tint_progress = Color( 0.0392157, 0.643137, 0.913725, 1 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="Base/EnergyAmount"]
+
+[node name="FlickerTimer" type="Timer" parent="Base/EnergyAmount"]
+wait_time = 0.2
+one_shot = true
+
+[node name="KeysMargin" type="MarginContainer" parent="Base"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -208.0
+margin_top = -71.0
+margin_right = 208.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeysContainer" type="HBoxContainer" parent="Base/KeysMargin"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 406.0
+margin_bottom = 61.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer"]
+margin_right = 234.0
+margin_bottom = 51.0
+
+[node name="SpaceLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Space"]
+margin_right = 234.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 8 )
+text = "Slow in mid air"
+
+[node name="SpaceCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Space"]
+margin_top = 21.0
+margin_right = 234.0
+margin_bottom = 51.0
+
+[node name="SpaceKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Space/SpaceCenter"]
+margin_right = 234.0
+margin_bottom = 30.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Switch" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer"]
+margin_left = 238.0
+margin_right = 336.0
+margin_bottom = 51.0
+
+[node name="SwitchLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Switch"]
+margin_right = 98.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 8 )
+text = "Switch gravity"
+
+[node name="SwitchCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Switch"]
+margin_top = 21.0
+margin_right = 98.0
+margin_bottom = 51.0
+
+[node name="SwitchKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Switch/SwitchCenter"]
+margin_left = 35.0
+margin_right = 62.0
+margin_bottom = 30.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interact" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer"]
+margin_left = 340.0
+margin_right = 396.0
+margin_bottom = 51.0
+
+[node name="InteractLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Interact"]
+margin_right = 56.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 8 )
+text = "Interact"
+
+[node name="InteractCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Interact"]
+margin_top = 21.0
+margin_right = 56.0
+margin_bottom = 51.0
+
+[node name="InteractKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Interact/InteractCenter"]
+margin_left = 14.0
+margin_right = 41.0
+margin_bottom = 30.0
+texture = ExtResource( 9 )
+
+[connection signal="timeout" from="Base/EnergyAmount/FlickerTimer" to="Base/EnergyAmount" method="_on_FlickerTimer_timeout"]

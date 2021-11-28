@@ -11,7 +11,10 @@ script = ExtResource( 9 )
 
 [node name="Kinematic" parent="." instance=ExtResource( 1 )]
 
+[connection signal="death" from="Kinematic" to="." method="_on_Kinematic_death"]
 [connection signal="energy_consumed" from="Kinematic" to="." method="_on_Kinematic_energy_consumed"]
 [connection signal="energy_found" from="Kinematic" to="." method="_on_Kinematic_energy_found"]
 [connection signal="jumped" from="Kinematic" to="." method="_on_Kinematic_jumped"]
 [connection signal="landed" from="Kinematic" to="." method="_on_Kinematic_landed"]
+[connection signal="spawned" from="Kinematic" to="." method="_on_Kinematic_spawned"]
+[connection signal="switch_attempt" from="Kinematic" to="." method="_on_Kinematic_switch_attempt"]

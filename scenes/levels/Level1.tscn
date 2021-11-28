@@ -1,0 +1,249 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scenes/World.tscn" type="PackedScene" id=1]
+[ext_resource path="res://images/tilemaps/tilemap.png" type="Texture" id=2]
+[ext_resource path="res://resources/TileCornerAnimated.tres" type="Texture" id=3]
+[ext_resource path="res://resources/TileStraightAnimated.tres" type="Texture" id=4]
+[ext_resource path="res://scenes/EnergySmall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/EnergyMedium.tscn" type="PackedScene" id=6]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 50, 50, 0, 50, 0, 0, 50, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 50, 50, 0, 50, 0, 0, 50, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 50, 0, 50, 7.25867, 24.8852, 28.4689, 0, 7.25867 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 0, 0, 50, 0, 50, 8.37498, 26.7944, 50, 23.4454, 50, 0, 7.53775 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 50, 50, 0, 50, 0, 0, 50, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 50, 50, 0, 50, 0, 0, 50, 0 )
+
+[sub_resource type="TileSet" id=8]
+0/name = "tilemap.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 50, 50 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "tilemap.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 50, 0, 50, 50 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "tilemap.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 50, 50, 50 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 3 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "tilemap.png 3"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 50, 50, 50, 50 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 4 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "TileCornerAnimated.tres 4"
+4/texture = ExtResource( 3 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 50, 50 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 6 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+5/name = "TileStraightAnimated.tres 5"
+5/texture = ExtResource( 4 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 50, 50 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape = SubResource( 7 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+5/z_index = 0
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends Node2D
+
+onready var animations = $Animations
+onready var tween = $Tween
+
+const ANIMATION_IDLE = \"idle\"
+var rng = RandomNumberGenerator.new()
+
+export(int) var MIN_ANIMATION_SPEED = 12
+export(int) var MAX_ANIMATION_SPEED = 12
+export(int) var TWEEN_DURATION = 5
+var _tween_values: Array
+
+func _ready():
+	rng.randomize()
+	var max_frame_idx = animations.frames.get_frame_count(ANIMATION_IDLE)
+	var start_frame = rng.randf_range(0, max_frame_idx)
+	animations.set_frame(start_frame)
+	animations.play(ANIMATION_IDLE)
+	
+	var start_rotation_degree = rng.randf_range(0, 180)
+	_tween_values = [start_rotation_degree, start_rotation_degree + 180]
+	_start_tween_rotation()
+	
+
+func _start_tween_rotation():
+	tween.interpolate_property(animations, \"rotation_degrees\",
+		_tween_values[0], _tween_values[1], TWEEN_DURATION,
+		tween.TRANS_LINEAR, tween.EASE_IN_OUT)
+	tween.start()
+	
+
+func _on_Tween_tween_all_completed() -> void:
+	_tween_values.invert()
+	_start_tween_rotation()
+"
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends Node2D
+
+onready var anim = $Animations
+onready var loading_sound = $Sounds/LoadingSound
+onready var win_sound = $Sounds/WinSound
+
+const ANIMATION_LOADING = \"loading\"
+
+func play_loading():
+	if anim.get_animation() != ANIMATION_LOADING or not anim.is_playing():
+		anim.play(ANIMATION_LOADING)
+	
+	if not loading_sound.is_playing():
+		loading_sound.play()
+
+func _on_Animations_animation_finished() -> void:
+	if anim.get_animation() == ANIMATION_LOADING:
+		# win
+		if loading_sound.is_playing():
+			loading_sound.stop()
+
+		if not win_sound.is_playing():
+			win_sound.play()
+"
+
+[node name="World" instance=ExtResource( 1 )]
+position = Vector2( -125, -425 )
+
+[node name="TileMap" parent="." index="0"]
+tile_set = SubResource( 8 )
+tile_data = PoolIntArray( 0, 1, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 1, 0, 65536, 0, 0, 65557, 0, 0, 131072, 0, 0, 131093, 0, 0, 196608, 0, 0, 196629, 0, 0, 262144, 0, 0, 262165, 0, 0, 327680, 0, 0, 327701, 0, 0, 393216, 0, 0, 393237, 0, 0, 458752, 0, 0, 458773, 0, 0, 524288, 0, 0, 524309, 0, 0, 589824, 0, 0, 589845, 0, 0, 655360, 1, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 1, 0 )
+
+[node name="TileMapKill" parent="." index="1"]
+tile_data = PoolIntArray( 65538, 2, 0, 65542, 2, 0, 65551, 2, 0, 65555, 2, 0 )
+
+[node name="EnergySmall4" parent="Energy" index="0" instance=ExtResource( 5 )]
+position = Vector2( 870, 70 )
+
+[node name="EnergySmall3" parent="Energy" index="1" instance=ExtResource( 5 )]
+position = Vector2( 700, 70 )
+
+[node name="EnergySmall2" parent="Energy" index="2" instance=ExtResource( 5 )]
+position = Vector2( 420, 70 )
+
+[node name="EnergySmall" parent="Energy" index="3" instance=ExtResource( 5 )]
+position = Vector2( 220, 70 )
+script = SubResource( 10 )
+
+[node name="EnergyMedium" parent="Energy" index="4" instance=ExtResource( 6 )]
+position = Vector2( 560, 460 )
+
+[node name="Machine" parent="." index="4"]
+position = Vector2( 560, 100 )
+rotation = 3.14159
+script = SubResource( 9 )

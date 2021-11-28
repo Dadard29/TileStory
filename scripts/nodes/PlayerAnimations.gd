@@ -6,6 +6,7 @@ const _ANIMATION_IDLE = "idle"
 const _ANIMATION_MOVE_RIGHT = "move_right"
 const _ANIMATION_SWITCH_AVAILABLE = "switch_available"
 const _ANIMATION_SWITCHED = "switched"
+const _ANIMATION_SPAWN = "spawn"
 
 var _moving: bool = false
 var _is_inverted: bool = false
@@ -13,8 +14,21 @@ var _is_inverted: bool = false
 func _ready():
 	pass
 
+func set_death():
+	self.play(_ANIMATION_SPAWN, true)
+
 func set_idle():
 	self.play(_ANIMATION_IDLE)
+
+func set_spawn():
+	self.set_animation(_ANIMATION_SPAWN)
+	self.play(_ANIMATION_SPAWN)
+	
+func set_switch_available():
+	self.play(_ANIMATION_SWITCH_AVAILABLE)
+
+func set_switched():
+	self.play(_ANIMATION_SWITCHED)
 
 func _move_left():
 	self.play(_ANIMATION_MOVE_RIGHT)
@@ -23,12 +37,6 @@ func _move_left():
 func _move_right():
 	self.play(_ANIMATION_MOVE_RIGHT)
 	self.set_flip_h(self._is_inverted)
-	
-func set_switch_available():
-	self.play(_ANIMATION_SWITCH_AVAILABLE)
-
-func set_switched():
-	self.play(_ANIMATION_SWITCHED)
 
 func set_moving_animation(is_moving: bool, is_moving_left: bool, is_moving_right: bool):
 	var _moving_previous = _moving

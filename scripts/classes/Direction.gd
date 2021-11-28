@@ -106,9 +106,15 @@ class DIRECTION_CLASS:
 		
 		return is_moving_side_b
 		
-	func is_slowing_input() -> bool:
+	func started_slowing_input() -> bool:
 		return Input.is_action_just_pressed(self._slow_key)
 	
+	func is_slowing_input() -> bool:
+		return Input.is_action_pressed(self._slow_key)
+	
+	func released_slowing_input() -> bool:
+		return Input.is_action_just_released("ui_accept")
+
 	func switch_input():
 		var is_still_slowing = Input.is_action_pressed(self._slow_key)
 		var new_orient

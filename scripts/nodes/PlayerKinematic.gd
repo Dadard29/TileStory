@@ -3,6 +3,7 @@ extends KinematicBody2D
 # constants
 const ENERGY_GROUP = "energy"
 const MACHINE_GROUP = "machine"
+const TILE_KILL_GROUP = "tile_kill"
 
 # global configurable variables
 export var GRAVITY = 1500
@@ -18,12 +19,16 @@ var _previous_is_on_floor = true
 
 # child nodes
 onready var anim = $Animations
+onready var sounds = $Sounds
 
 # signals
 signal jumped
 signal landed
 signal energy_found
 signal energy_consumed
+signal switch_attempt
+signal spawned
+signal death
 
 # classes
 const ORIENT_T = preload("res://scripts/classes/OrientationsType.gd").ORIENT_TYPE
@@ -52,19 +57,39 @@ func _ready():
 	)
 	
 	self.anim.set_orient_type(DEFAULT_ORIENT_TYPE)
+	self.anim.set_spawn()
+	self.sounds.spawn()
 
+# =========== MISC ============
+
+func _on_Animations_animation_finished() -> void:
+	if anim.get_animation() == "spawn":
+		emit_signal("spawned")
+
+	
+# =========== CONTROLS ========
+func is_slow_available(has_enough_energy: bool) -> bool:
+	return has_enough_energy and self._switching_gravity and _is_falling_slow()
+
+func is_switch_available(has_enough_energy: bool) -> bool:
+	return is_slow_available(has_enough_energy) and self.direction.is_slowing_input()
+
+func is_near_machine() -> bool:
+	return _near_machine
+
+# =========== PHYSICS =========
 func _gravity_switch_controls():
 	if self._switching_gravity == false:
 			self.anim.set_switch_available()
 			self._switching_gravity = true
 		
-	if self.direction.is_slowing_input():
+	if self.direction.started_slowing_input():
 		# slowing, waiting for gravity switch
 		_velocity = Vector2.ZERO
 		self.anim.set_switched()
 		self.velocity.speed_slow(0.05)
 	
-	if Input.is_action_just_released("ui_accept"):
+	if self.direction.released_slowing_input():
 		# gravity switch cancelled
 		self.velocity.speed_reset()
 		
@@ -83,15 +108,18 @@ func _gravity_switch_reset():
 			self.velocity.speed_reset()
 			self._switching_gravity = false
 
+func _is_falling_slow() -> bool:
+	return self.velocity.is_falling_with_max_speed(_velocity, is_on_floor(), 200, 600)
+
 func gravity_switch(has_enough_energy: bool):
-	# manage special case to switch gravity orientation
-	var is_falling_slow = self.velocity.is_falling_with_max_speed(
-		_velocity, is_on_floor(), 200, 600)
-	
-	if is_falling_slow and has_enough_energy:
+	# manage special case to switch gravity orientation	
+	if _is_falling_slow() and has_enough_energy:
 		_gravity_switch_controls()
 	else:
 		_gravity_switch_reset()
+	
+	if _is_falling_slow() and self.direction.is_slowing_input() and not has_enough_energy:
+		emit_signal("switch_attempt")
 
 func update_animation():
 	var is_falling_slow = self.velocity.is_falling_with_max_speed(
@@ -108,10 +136,20 @@ func update_animation():
 
 func update_collision():
 	if is_on_floor() and _previous_is_on_floor == false:
+		# landed
 		var position = get_global_position()
 		emit_signal("landed", position, orient_type)
-	
+		
 	_previous_is_on_floor = is_on_floor()
+
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider.is_in_group(TILE_KILL_GROUP):
+			self.sounds.death()
+			self.anim.set_death()
+			emit_signal("death")
+	
 	
 
 func update_direction_and_velocity(delta):
@@ -135,11 +173,13 @@ func update_direction_and_velocity(delta):
 	if self.direction.is_just_jumped(_direction):
 		var position = get_global_position()
 		emit_signal("jumped", position, orient_type)
+		sounds.jump()
 
 func _on_DetectionArea_area_entered(area: Area2D):
 	# detected object
 	if area.is_in_group(ENERGY_GROUP):
 		emit_signal("energy_found", area)
+		sounds.energy_gain()
 
 	elif area.is_in_group(MACHINE_GROUP):
 		if self._near_machine == false:
