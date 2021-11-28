@@ -14,3 +14,4 @@ script = ExtResource( 9 )
 [connection signal="energy_consumed" from="Kinematic" to="." method="_on_Kinematic_energy_consumed"]
 [connection signal="energy_found" from="Kinematic" to="." method="_on_Kinematic_energy_found"]
 [connection signal="jumped" from="Kinematic" to="." method="_on_Kinematic_jumped"]
+[connection signal="landed" from="Kinematic" to="." method="_on_Kinematic_landed"]

@@ -14,12 +14,14 @@ var _velocity = Vector2.ZERO
 var _moving = false
 var _switching_gravity = false
 var _near_machine = false
+var _previous_is_on_floor = true
 
 # child nodes
 onready var anim = $Animations
 
 # signals
 signal jumped
+signal landed
 signal energy_found
 signal energy_consumed
 
@@ -103,6 +105,14 @@ func update_animation():
 			self.direction.is_moving_left(_direction),
 			self.direction.is_moving_right(_direction)
 		)
+
+func update_collision():
+	if is_on_floor() and _previous_is_on_floor == false:
+		var position = get_global_position()
+		emit_signal("landed", position, orient_type)
+	
+	_previous_is_on_floor = is_on_floor()
+	
 
 func update_direction_and_velocity(delta):
 	# compute direction

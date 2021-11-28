@@ -14,3 +14,4 @@ position = Vector2( 216, 392 )
 [node name="PlayerEvents" parent="." instance=ExtResource( 3 )]
 
 [connection signal="jumped" from="Player" to="PlayerEvents" method="_on_Player_jumped"]
+[connection signal="landed" from="Player" to="PlayerEvents" method="_on_Player_landed"]

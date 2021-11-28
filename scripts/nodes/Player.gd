@@ -20,6 +20,7 @@ export(bool) var energy_infinite_debug = false
 
 # signals
 signal jumped
+signal landed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +28,9 @@ func _ready():
 
 func _on_Kinematic_jumped(position: Vector2, orient_type):
 	emit_signal("jumped", position, orient_type)
+
+func _on_Kinematic_landed(position: Vector2, orient_type) -> void:
+	emit_signal("landed", position, orient_type)
 
 
 func _on_Kinematic_energy_found(area: Area2D) -> void:
@@ -57,3 +61,4 @@ func _physics_process(delta: float) -> void:
 	
 	Kinematic.update_direction_and_velocity(delta)
 	Kinematic.update_animation()
+	Kinematic.update_collision()
