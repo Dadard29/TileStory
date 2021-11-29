@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/nodes/Gui.gd" type="Script" id=1]
 [ext_resource path="res://images/player/gui/bar_under.png" type="Texture" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://resources/SwitchArrowAnimation.tres" type="Texture" id=7]
 [ext_resource path="res://resources/Font.tres" type="DynamicFont" id=8]
 [ext_resource path="res://images/player/gui/interact.png" type="Texture" id=9]
+[ext_resource path="res://images/player/gui/mute.png" type="Texture" id=10]
+[ext_resource path="res://resources/Theme.tres" type="Theme" id=11]
+[ext_resource path="res://images/player/gui/restart.png" type="Texture" id=12]
 
 [node name="Gui" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -47,9 +50,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -208.0
-margin_top = -71.0
-margin_right = 208.0
+margin_left = -285.0
+margin_top = -91.0
+margin_right = 285.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -61,29 +64,38 @@ __meta__ = {
 [node name="KeysContainer" type="HBoxContainer" parent="Base/KeysMargin"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 406.0
-margin_bottom = 61.0
+margin_right = 560.0
+margin_bottom = 81.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Space" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer"]
-margin_right = 234.0
-margin_bottom = 51.0
+[node name="Space" type="MarginContainer" parent="Base/KeysMargin/KeysContainer"]
+visible = false
+margin_left = 101.0
+margin_right = 355.0
+margin_bottom = 71.0
+theme = ExtResource( 11 )
 
-[node name="SpaceLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Space"]
+[node name="SpaceBox" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer/Space"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 244.0
+margin_bottom = 61.0
+
+[node name="SpaceLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Space/SpaceBox"]
 margin_right = 234.0
 margin_bottom = 17.0
 custom_fonts/font = ExtResource( 8 )
 text = "Slow in mid air"
 
-[node name="SpaceCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Space"]
+[node name="SpaceCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Space/SpaceBox"]
 margin_top = 21.0
 margin_right = 234.0
 margin_bottom = 51.0
 
-[node name="SpaceKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Space/SpaceCenter"]
+[node name="SpaceKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Space/SpaceBox/SpaceCenter"]
 margin_right = 234.0
 margin_bottom = 30.0
 texture = ExtResource( 6 )
@@ -91,23 +103,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Switch" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer"]
-margin_left = 238.0
-margin_right = 336.0
-margin_bottom = 51.0
+[node name="Switch" type="MarginContainer" parent="Base/KeysMargin/KeysContainer"]
+visible = false
+margin_left = 298.0
+margin_right = 416.0
+margin_bottom = 71.0
+theme = ExtResource( 11 )
 
-[node name="SwitchLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Switch"]
+[node name="SwitchBox" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer/Switch"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 108.0
+margin_bottom = 61.0
+
+[node name="SwitchLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Switch/SwitchBox"]
 margin_right = 98.0
 margin_bottom = 17.0
 custom_fonts/font = ExtResource( 8 )
 text = "Switch gravity"
 
-[node name="SwitchCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Switch"]
+[node name="SwitchCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Switch/SwitchBox"]
 margin_top = 21.0
 margin_right = 98.0
 margin_bottom = 51.0
 
-[node name="SwitchKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Switch/SwitchCenter"]
+[node name="SwitchKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Switch/SwitchBox/SwitchCenter"]
 margin_left = 35.0
 margin_right = 62.0
 margin_bottom = 30.0
@@ -116,26 +136,92 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Interact" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer"]
-margin_left = 340.0
-margin_right = 396.0
-margin_bottom = 51.0
+[node name="Interact" type="MarginContainer" parent="Base/KeysMargin/KeysContainer"]
+visible = false
+margin_left = 380.0
+margin_right = 456.0
+margin_bottom = 71.0
+theme = ExtResource( 11 )
 
-[node name="InteractLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Interact"]
+[node name="InteractBox" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer/Interact"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 66.0
+margin_bottom = 61.0
+
+[node name="InteractLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Interact/InteractBox"]
 margin_right = 56.0
 margin_bottom = 17.0
 custom_fonts/font = ExtResource( 8 )
 text = "Interact"
 
-[node name="InteractCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Interact"]
+[node name="InteractCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Interact/InteractBox"]
 margin_top = 21.0
 margin_right = 56.0
 margin_bottom = 51.0
 
-[node name="InteractKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Interact/InteractCenter"]
+[node name="InteractKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Interact/InteractBox/InteractCenter"]
 margin_left = 14.0
 margin_right = 41.0
 margin_bottom = 30.0
 texture = ExtResource( 9 )
+
+[node name="Mute" type="MarginContainer" parent="Base/KeysMargin/KeysContainer"]
+margin_left = 172.0
+margin_right = 262.0
+margin_bottom = 71.0
+theme = ExtResource( 11 )
+
+[node name="MuteBox" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer/Mute"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 80.0
+margin_bottom = 61.0
+
+[node name="InteractLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Mute/MuteBox"]
+margin_right = 70.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 8 )
+text = "Mute music"
+
+[node name="InteractCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Mute/MuteBox"]
+margin_top = 21.0
+margin_right = 70.0
+margin_bottom = 51.0
+
+[node name="InteractKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Mute/MuteBox/InteractCenter"]
+margin_left = 21.0
+margin_right = 48.0
+margin_bottom = 30.0
+texture = ExtResource( 10 )
+
+[node name="Restart" type="MarginContainer" parent="Base/KeysMargin/KeysContainer"]
+margin_left = 266.0
+margin_right = 377.0
+margin_bottom = 71.0
+theme = ExtResource( 11 )
+
+[node name="MuteBox" type="VBoxContainer" parent="Base/KeysMargin/KeysContainer/Restart"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 101.0
+margin_bottom = 61.0
+
+[node name="RestartLabel" type="Label" parent="Base/KeysMargin/KeysContainer/Restart/MuteBox"]
+margin_right = 91.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 8 )
+text = "Restart level"
+
+[node name="RestartCenter" type="CenterContainer" parent="Base/KeysMargin/KeysContainer/Restart/MuteBox"]
+margin_top = 21.0
+margin_right = 91.0
+margin_bottom = 51.0
+
+[node name="RestartKey" type="TextureRect" parent="Base/KeysMargin/KeysContainer/Restart/MuteBox/RestartCenter"]
+margin_left = 32.0
+margin_right = 59.0
+margin_bottom = 30.0
+texture = ExtResource( 12 )
 
 [connection signal="timeout" from="Base/EnergyAmount/FlickerTimer" to="Base/EnergyAmount" method="_on_FlickerTimer_timeout"]

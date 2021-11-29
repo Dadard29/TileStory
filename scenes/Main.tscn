@@ -1,17 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sounds/bg_music_loop.mp3" type="AudioStream" id=1]
+[ext_resource path="res://scripts/nodes/Music.gd" type="Script" id=2]
 [ext_resource path="res://scenes/PlayerEvents.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=4]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-energy_infinite_debug = true
-
 [node name="PlayerEvents" parent="." instance=ExtResource( 3 )]
 
-[connection signal="jumped" from="Player" to="PlayerEvents" method="_on_Player_jumped"]
-[connection signal="landed" from="Player" to="PlayerEvents" method="_on_Player_landed"]
-[connection signal="loading" from="Player" to="." method="_on_Player_loading"]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -10.0
+script = ExtResource( 2 )

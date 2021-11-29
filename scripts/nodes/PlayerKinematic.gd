@@ -20,6 +20,7 @@ var _previous_is_on_floor = true
 # child nodes
 onready var anim = $Animations
 onready var sounds = $Sounds
+onready var camera = $Camera
 
 # signals
 signal jumped
@@ -57,15 +58,23 @@ func _ready():
 	)
 	
 	self.anim.set_orient_type(DEFAULT_ORIENT_TYPE)
-	self.anim.set_spawn()
-	self.sounds.spawn()
+	
 
 # =========== MISC ============
+func spawn():
+	self.anim.set_spawn()
+	self.sounds.spawn()
 
 func _on_Animations_animation_finished() -> void:
 	if anim.get_animation() == "spawn":
 		emit_signal("spawned")
+		self.anim.set_idle()
+	
+	elif anim.get_animation() == "death":
+		emit_signal("death")
 
+func zoom():
+	camera.loading_zoom()
 	
 # =========== CONTROLS ========
 func is_slow_available(has_enough_energy: bool) -> bool:
@@ -118,7 +127,7 @@ func gravity_switch(has_enough_energy: bool):
 	else:
 		_gravity_switch_reset()
 	
-	if _is_falling_slow() and self.direction.is_slowing_input() and not has_enough_energy:
+	if _is_falling_slow() and self.direction.started_slowing_input() and not has_enough_energy:
 		emit_signal("switch_attempt")
 
 func update_animation():
@@ -146,11 +155,10 @@ func update_collision():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider.is_in_group(TILE_KILL_GROUP):
+			# dies
 			self.sounds.death()
 			self.anim.set_death()
-			emit_signal("death")
-	
-	
+			get_parent().set_physics_process(false)
 
 func update_direction_and_velocity(delta):
 	# compute direction

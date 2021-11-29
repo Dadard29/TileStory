@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/restart_icon.png-16f3f2bbcbf496bed934395fa412a6c0.stex"
+path="res://.import/player_death0009.png-38178b04852f42805e5d79c31b61b2bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icons/restart_icon.png"
-dest_files=[ "res://.import/restart_icon.png-16f3f2bbcbf496bed934395fa412a6c0.stex" ]
+source_file="res://images/player/animations/death_2/player_death0009.png"
+dest_files=[ "res://.import/player_death0009.png-38178b04852f42805e5d79c31b61b2bb.stex" ]
 
 [params]
 

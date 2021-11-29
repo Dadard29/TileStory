@@ -23,13 +23,12 @@ func set_energy_amount(old_energy_amount: int, new_energy_amount: int):
 	if new_energy_amount >= valid_amount:
 		set_tint_progress(valid_color)
 	
-	if new_energy_amount <= valid_amount:
+	if new_energy_amount < valid_amount:
 		set_tint_progress(invalid_color)
 
 func flicker_texture_under():
 	self.set_tint_over(invalid_color)
 	flicker_timer.start()
-
 
 func _on_FlickerTimer_timeout() -> void:
 	self.set_tint_over(neutral_color)

@@ -12,4 +12,4 @@ dest_files=[ "res://.import/bg_music_loop.mp3-f10597355f43ec5b56cd3fd3b5a14b91.m
 [params]
 
 loop=true
-loop_offset=0
+loop_offset=2.0

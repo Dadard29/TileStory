@@ -7,6 +7,7 @@ const _ANIMATION_MOVE_RIGHT = "move_right"
 const _ANIMATION_SWITCH_AVAILABLE = "switch_available"
 const _ANIMATION_SWITCHED = "switched"
 const _ANIMATION_SPAWN = "spawn"
+const _ANIMATION_DEATH = "death"
 
 var _moving: bool = false
 var _is_inverted: bool = false
@@ -15,7 +16,7 @@ func _ready():
 	pass
 
 func set_death():
-	self.play(_ANIMATION_SPAWN, true)
+	self.play(_ANIMATION_DEATH)
 
 func set_idle():
 	self.play(_ANIMATION_IDLE)

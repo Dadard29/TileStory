@@ -1,14 +1,16 @@
 extends Node2D
 
 onready var animations = $Animations
-onready var tween = $Tween
+onready var rotation_tween = $RotationTween
+onready var consume_tween = $ConsumeTween
 
 const ANIMATION_IDLE = "idle"
 var rng = RandomNumberGenerator.new()
 
 export(int) var MIN_ANIMATION_SPEED = 12
 export(int) var MAX_ANIMATION_SPEED = 12
-export(int) var TWEEN_DURATION = 5
+export(int) var ROTATION_DURATION = 5
+export(int) var CONSUME_DURATION = 1
 var _tween_values: Array
 
 func _ready():
@@ -24,12 +26,21 @@ func _ready():
 	
 
 func _start_tween_rotation():
-	tween.interpolate_property(animations, "rotation_degrees",
-		_tween_values[0], _tween_values[1], TWEEN_DURATION,
-		tween.TRANS_LINEAR, tween.EASE_IN_OUT)
-	tween.start()
-	
+	rotation_tween.interpolate_property(animations, "rotation_degrees",
+		_tween_values[0], _tween_values[1], ROTATION_DURATION,
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	rotation_tween.start()
 
-func _on_Tween_tween_all_completed() -> void:
+func _on_RotationTween_tween_all_completed() -> void:
 	_tween_values.invert()
 	_start_tween_rotation()
+
+func consume():
+	var initial = animations.get_scale()
+	var final = Vector2.ZERO
+	consume_tween.interpolate_property(animations, "scale", initial, final,
+		CONSUME_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	consume_tween.start()
+
+func _on_ConsumeTween_tween_all_completed() -> void:
+	self.queue_free()

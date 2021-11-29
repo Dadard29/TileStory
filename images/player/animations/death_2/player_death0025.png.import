@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/level_icon.png-a7f9f44ddc50371d80f5c7f6c37305f1.stex"
+path="res://.import/player_death0025.png-b374ea3cb3ec4b70cd0f35b96a79f197.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icons/level_icon.png"
-dest_files=[ "res://.import/level_icon.png-a7f9f44ddc50371d80f5c7f6c37305f1.stex" ]
+source_file="res://images/player/animations/death_2/player_death0025.png"
+dest_files=[ "res://.import/player_death0025.png-b374ea3cb3ec4b70cd0f35b96a79f197.stex" ]
 
 [params]
 

@@ -12,3 +12,4 @@ func _on_QuitButton_pressed() -> void:
 func _on_Control_level(level_path) -> void:
 	menu.hide()
 	main.set_level(level_path)
+

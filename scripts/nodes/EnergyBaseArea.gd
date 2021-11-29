@@ -5,4 +5,4 @@ func _ready() -> void:
 
 
 func destroy():
-	get_parent().queue_free()
+	get_parent().consume()
