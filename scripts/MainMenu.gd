@@ -63,6 +63,9 @@ func hide():
 func show():
 	full_rect.set_visible(true)
 
+func toggle():
+	full_rect.set_visible(not full_rect.is_visible())
+
 func set_score(new_score: int):
 	var score = String(new_score) + "pts"
 	score_value.set_text(score)

@@ -20,3 +20,7 @@ func _on_Main_win(energy_used: int) -> void:
 	_score += energy_used
 	menu.set_score(_score)
 	menu.show()
+
+
+func _on_Main_menu_toggle() -> void:
+	menu.toggle()

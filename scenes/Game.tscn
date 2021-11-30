@@ -11,5 +11,6 @@ script = ExtResource( 4 )
 
 [node name="Control" parent="." instance=ExtResource( 2 )]
 
+[connection signal="menu_toggle" from="Main" to="." method="_on_Main_menu_toggle"]
 [connection signal="win" from="Main" to="." method="_on_Main_win"]
 [connection signal="level" from="Control" to="." method="_on_Control_level"]

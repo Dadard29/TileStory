@@ -14,8 +14,10 @@ const PLAYER_NODE_NAME = "Player"
 
 const MUTE_KEY = "mute"
 const RESTART_KEY = "restart"
+const MENU_KEY = "menu"
 
 signal win(energy_used)
+signal menu_toggle
 
 func _ready() -> void:
 	pass
@@ -29,6 +31,10 @@ func _process(_delta: float) -> void:
 		# dont restart if no level loaded
 		if _level != null:
 			_restart_level()
+		
+	if Input.is_action_just_pressed(MENU_KEY):
+		if _level != null:
+			emit_signal("menu_toggle")
 
 
 func clean_player():
