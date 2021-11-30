@@ -1,16 +1,33 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://resources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://resources/TileMap.tres" type="TileSet" id=2]
 [ext_resource path="res://resources/FontBig.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scripts/nodes/ScoreValueBox.gd" type="Script" id=4]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=5]
+[ext_resource path="res://resources/PlayerParticles.tres" type="Material" id=6]
+[ext_resource path="res://images/player/particles/fall.png" type="Texture" id=7]
+[ext_resource path="res://images/icons/energy_small_icon.png" type="Texture" id=8]
+[ext_resource path="res://images/energy/animations/energy_medium/energy_medium_frame0001.png" type="Texture" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.654902 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0.0117647, 0.0901961, 0.458824 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 0.6
+emission_shape = 1
+emission_sphere_radius = 30.0
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 0, 1000, 0 )
+initial_velocity = 350.0
+angular_velocity = 300.0
+angular_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
 
 [node name="Control" type="CanvasLayer"]
 layer = 2
@@ -123,6 +140,27 @@ custom_colors/font_color = Color( 0.0392157, 0.643137, 0.913725, 1 )
 text = "pts"
 
 [node name="ScoreTween" type="Tween" parent="FullRect/Panel/Center/VB/Score/ScorePanel/ScoreBox/ScoreValueBox"]
+
+[node name="NeutralParticles" type="Particles2D" parent="FullRect/Panel/Center/VB/Score/ScorePanel/ScoreBox/ScoreValueBox"]
+position = Vector2( 50, 26 )
+emitting = false
+one_shot = true
+process_material = ExtResource( 6 )
+texture = ExtResource( 7 )
+
+[node name="EnergySmallParticles" type="Particles2D" parent="FullRect/Panel/Center/VB/Score/ScorePanel/ScoreBox/ScoreValueBox"]
+position = Vector2( 50, 26 )
+emitting = false
+one_shot = true
+process_material = SubResource( 3 )
+texture = ExtResource( 8 )
+
+[node name="Particles2D" type="Particles2D" parent="FullRect/Panel/Center/VB/Score/ScorePanel/ScoreBox/ScoreValueBox"]
+emitting = false
+amount = 4
+one_shot = true
+process_material = SubResource( 3 )
+texture = ExtResource( 9 )
 
 [node name="LevelSelection" type="MarginContainer" parent="FullRect/Panel/Center/VB"]
 margin_top = 469.0
