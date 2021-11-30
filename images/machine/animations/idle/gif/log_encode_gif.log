@@ -1,0 +1,154 @@
+ffmpeg version n4.4.1 Copyright (c) 2000-2021 the FFmpeg developers
+  built with gcc 11.1.0 (GCC)
+  configuration: --prefix=/usr --disable-debug --disable-static --disable-stripping --enable-amf --enable-avisynth --enable-cuda-llvm --enable-lto --enable-fontconfig --enable-gmp --enable-gnutls --enable-gpl --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libdav1d --enable-libdrm --enable-libfreetype --enable-libfribidi --enable-libgsm --enable-libiec61883 --enable-libjack --enable-libmfx --enable-libmodplug --enable-libmp3lame --enable-libopencore_amrnb --enable-libopencore_amrwb --enable-libopenjpeg --enable-libopus --enable-libpulse --enable-librav1e --enable-librsvg --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtheora --enable-libv4l2 --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxcb --enable-libxml2 --enable-libxvid --enable-libzimg --enable-nvdec --enable-nvenc --enable-shared --enable-version3
+  libavutil      56. 70.100 / 56. 70.100
+  libavcodec     58.134.100 / 58.134.100
+  libavformat    58. 76.100 / 58. 76.100
+  libavdevice    58. 13.100 / 58. 13.100
+  libavfilter     7.110.100 /  7.110.100
+  libswscale      5.  9.100 /  5.  9.100
+  libswresample   3.  9.100 /  3.  9.100
+  libpostproc    55.  9.100 / 55.  9.100
+Splitting the commandline.
+Reading option '-v' ... matched as option 'v' (set logging level) with argument 'debug'.
+Reading option '-nostdin' ... matched as option 'stdin' (enable or disable interaction on standard input) with argument 0.
+Reading option '-progress' ... matched as option 'progress' (write program-readable progress information) with argument '/tmp/KritaFFmpegProgress.JkEXqg'.
+Reading option '-r' ... matched as option 'r' (set frame rate (Hz value, fraction or abbreviation)) with argument '12'.
+Reading option '-start_number' ... matched as AVOption 'start_number' with argument '0'.
+Reading option '-i' ... matched as input url with argument '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle%04d.png'.
+Reading option '-i' ... matched as input url with argument '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/palette.png'.
+Reading option '-lavfi' ... matched as option 'lavfi' (create a complex filtergraph) with argument '[0:v][1:v] paletteuse'.
+Reading option '-y' ... matched as option 'y' (overwrite output files) with argument '1'.
+Reading option '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/loading_machine.gif' ... matched as output url.
+Finished splitting the commandline.
+Parsing a group of options: global .
+Applying option v (set logging level) with argument debug.
+Applying option nostdin (enable or disable interaction on standard input) with argument 0.
+Applying option progress (write program-readable progress information) with argument /tmp/KritaFFmpegProgress.JkEXqg.
+[file @ 0x55e9fb403540] Setting default whitelist 'file,crypto,data'
+Applying option lavfi (create a complex filtergraph) with argument [0:v][1:v] paletteuse.
+Applying option y (overwrite output files) with argument 1.
+Successfully parsed a group of options.
+Parsing a group of options: input url /home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle%04d.png.
+Applying option r (set frame rate (Hz value, fraction or abbreviation)) with argument 12.
+Successfully parsed a group of options.
+Opening an input file: /home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle%04d.png.
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0000.png' for reading
+[file @ 0x55e9fb40a540] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb408000] Statistics: 2963 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0001.png' for reading
+[file @ 0x55e9fb40aa40] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb40abc0] Statistics: 2963 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0002.png' for reading
+[file @ 0x55e9fb40bc40] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb40bf40] Statistics: 2963 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0003.png' for reading
+[file @ 0x55e9fb40c300] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb40c4c0] Statistics: 2869 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0004.png' for reading
+[file @ 0x55e9fb411c00] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb40c340] Statistics: 2869 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0005.png' for reading
+[file @ 0x55e9fb412080] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb412400] Statistics: 2869 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0006.png' for reading
+[file @ 0x55e9fb41f140] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb412040] Statistics: 2892 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0007.png' for reading
+[file @ 0x55e9fb420040] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb420140] Statistics: 2892 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0008.png' for reading
+[file @ 0x55e9fb421080] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb420080] Statistics: 2892 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0009.png' for reading
+[file @ 0x55e9fb421f80] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb422080] Statistics: 2816 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0010.png' for reading
+[file @ 0x55e9fb423180] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb421f80] Statistics: 2816 bytes read, 0 seeks
+[image2 @ 0x55e9fb403ac0] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle0011.png' for reading
+[file @ 0x55e9fb4242c0] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x55e9fb421f80] Statistics: 2816 bytes read, 0 seeks
+Input #0, image2, from '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle%04d.png':
+  Duration: 00:00:00.48, start: 0.000000, bitrate: N/A
+  Stream #0:0, 12, 1/25: Video: png, 1 reference frame, rgba(pc), 100x100 [SAR 3937:3937 DAR 1:1], 0/1, 25 fps, 25 tbr, 25 tbn, 25 tbc
+Successfully opened the file.
+Parsing a group of options: input url /home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/palette.png.
+Successfully parsed a group of options.
+Opening an input file: /home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/palette.png.
+[NULL @ 0x55e9fb409880] Opening '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/palette.png' for reading
+[file @ 0x55e9fb409040] Setting default whitelist 'file,crypto,data'
+[png_pipe @ 0x55e9fb409880] Format png_pipe probed with size=2048 and score=99
+[png_pipe @ 0x55e9fb409880] Before avformat_find_stream_info() pos: 0 bytes read:661 seeks:0 nb_streams:1
+[png_pipe @ 0x55e9fb409880] After avformat_find_stream_info() pos: 661 bytes read:661 seeks:0 frames:1
+Input #1, png_pipe, from '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/palette.png':
+  Duration: N/A, bitrate: N/A
+  Stream #1:0, 1, 1/25: Video: png, 1 reference frame, rgba(pc), 16x16 [SAR 1:1 DAR 1:1], 0/1, 25 fps, 25 tbr, 25 tbn, 25 tbc
+Successfully opened the file.
+Parsing a group of options: output url /home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/loading_machine.gif.
+Successfully parsed a group of options.
+Opening an output file: /home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/loading_machine.gif.
+[file @ 0x55e9fb40e100] Setting default whitelist 'file,crypto,data'
+Successfully opened the file.
+detected 4 logical cores
+Stream mapping:
+  Stream #0:0 (png) -> paletteuse:default
+  Stream #1:0 (png) -> paletteuse:palette
+  paletteuse -> Stream #0:0 (gif)
+cur_dts is invalid st:0 (0) [init:0 i_done:0 finish:0] (this is harmless if it occurs once at the start per stream)
+    Last message repeated 1 times
+[image2 @ 0x55e9fb403ac0] Thread message queue blocking; consider raising the thread_queue_size option (current value: 8)
+cur_dts is invalid st:0 (0) [init:0 i_done:0 finish:0] (this is harmless if it occurs once at the start per stream)
+    Last message repeated 4 times
+[graph 0 input from stream 0:0 @ 0x55e9fb479440] Setting 'video_size' to value '100x100'
+[graph 0 input from stream 0:0 @ 0x55e9fb479440] Setting 'pix_fmt' to value '26'
+[graph 0 input from stream 0:0 @ 0x55e9fb479440] Setting 'time_base' to value '1/12'
+[graph 0 input from stream 0:0 @ 0x55e9fb479440] Setting 'pixel_aspect' to value '3937/3937'
+[graph 0 input from stream 0:0 @ 0x55e9fb479440] Setting 'frame_rate' to value '12/1'
+[graph 0 input from stream 0:0 @ 0x55e9fb479440] w:100 h:100 pixfmt:rgba tb:1/12 fr:12/1 sar:3937/3937
+[graph 0 input from stream 1:0 @ 0x55e9fb4fce00] Setting 'video_size' to value '16x16'
+[graph 0 input from stream 1:0 @ 0x55e9fb4fce00] Setting 'pix_fmt' to value '26'
+[graph 0 input from stream 1:0 @ 0x55e9fb4fce00] Setting 'time_base' to value '1/25'
+[graph 0 input from stream 1:0 @ 0x55e9fb4fce00] Setting 'pixel_aspect' to value '1/1'
+[graph 0 input from stream 1:0 @ 0x55e9fb4fce00] Setting 'frame_rate' to value '25/1'
+[graph 0 input from stream 1:0 @ 0x55e9fb4fce00] w:16 h:16 pixfmt:rgba tb:1/25 fr:25/1 sar:1/1
+[format @ 0x55e9fb406d80] Setting 'pix_fmts' to value 'rgb8|bgr8|rgb4_byte|bgr4_byte|gray|pal8'
+[auto_scaler_0 @ 0x55e9fb4ff2c0] w:iw h:ih flags:'bilinear' interl:0
+[Parsed_paletteuse_0 @ 0x55e9fb47ac00] auto-inserting filter 'auto_scaler_0' between the filter 'graph 0 input from stream 0:0' and the filter 'Parsed_paletteuse_0'
+[auto_scaler_1 @ 0x55e9fb500900] w:iw h:ih flags:'bilinear' interl:0
+[Parsed_paletteuse_0 @ 0x55e9fb47ac00] auto-inserting filter 'auto_scaler_1' between the filter 'graph 0 input from stream 1:0' and the filter 'Parsed_paletteuse_0'
+[AVFilterGraph @ 0x55e9fb479bc0] query_formats: 5 queried, 2 merged, 2 already done, 0 delayed
+[swscaler @ 0x55e9fb501bc0] Forcing full internal H chroma due to input having non subsampled chroma
+[auto_scaler_0 @ 0x55e9fb4ff2c0] w:100 h:100 fmt:rgba sar:3937/3937 -> w:100 h:100 fmt:bgra sar:1/1 flags:0x2
+[swscaler @ 0x55e9fb518280] Forcing full internal H chroma due to input having non subsampled chroma
+[auto_scaler_1 @ 0x55e9fb500900] w:16 h:16 fmt:rgba sar:1/1 -> w:16 h:16 fmt:bgra sar:1/1 flags:0x2
+[Parsed_paletteuse_0 @ 0x55e9fb47ac00] [framesync @ 0x55e9fb47ad08] Selected 1/300 time base
+[Parsed_paletteuse_0 @ 0x55e9fb47ac00] [framesync @ 0x55e9fb47ad08] Sync level 2
+Output #0, gif, to '/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/loading_machine.gif':
+  Metadata:
+    encoder         : Lavf58.76.100
+  Stream #0:0, 0, 1/100: Video: gif, 1 reference frame, pal8(pc, gbr/unknown/unknown, progressive), 100x100 (0x0) [SAR 1:1 DAR 1:1], 0/1, q=2-31, 200 kb/s, 12 fps, 100 tbn (default)
+    Metadata:
+      encoder         : Lavc58.134.100 gif
+Clipping frame in rate conversion by 0.000008
+[gif @ 0x55e9fb414980] 96x96 image at pos (2;2) [area:100x100]
+frame=    1 fps=0.0 q=-0.0 size=       0kB time=00:00:00.01 bitrate=   0.0kbits/s speed=19.2x    [gif @ 0x55e9fb414980] 96x96 image at pos (2;2) [area:100x100]
+    Last message repeated 10 times
+[Parsed_paletteuse_0 @ 0x55e9fb47ac00] [framesync @ 0x55e9fb47ad08] Sync level 0
+[out_0_0 @ 0x55e9fb4fd580] EOF on sink link out_0_0:default.
+No more output streams to write to, finishing.
+frame=   12 fps=0.0 q=-0.0 Lsize=      18kB time=00:00:00.93 bitrate= 159.3kbits/s speed= 135x    
+[AVIOContext @ 0x55e9fb403880] Statistics: 0 seeks, 2 writeouts
+video:18kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.108114%
+Input file #0 (/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/player_idle%04d.png):
+  Input stream #0:0 (video): 12 packets read (34620 bytes); 12 frames decoded; 
+  Total: 12 packets (34620 bytes) demuxed
+Input file #1 (/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/palette.png):
+  Input stream #1:0 (video): 1 packets read (661 bytes); 1 frames decoded; 
+  Total: 1 packets (661 bytes) demuxed
+Output file #0 (/home/dadard/REPOS/Prog/godot/GoGodotJam_2/images/machine/animations/idle/gif/loading_machine.gif):
+  Output stream #0:0 (video): 12 frames encoded; 12 packets muxed (18499 bytes); 
+  Total: 12 packets (18499 bytes) muxed
+13 frames successfully decoded, 0 decoding errors
+[AVIOContext @ 0x55e9fb40e200] Statistics: 0 seeks, 1 writeouts
+[AVIOContext @ 0x55e9fb422040] Statistics: 661 bytes read, 0 seeks

@@ -10,26 +10,9 @@
 [node name="World" type="Node2D"]
 script = ExtResource( 7 )
 
-[node name="TileMap" type="TileMap" parent="."]
-modulate = Color( 0.705882, 0.705882, 0.705882, 1 )
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 50, 50 )
-format = 1
-
-[node name="TileMapKill" type="TileMap" parent="." groups=["tile_kill"]]
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 50, 50 )
-format = 1
-
-[node name="Background" parent="." instance=ExtResource( 6 )]
-
-[node name="Energy" type="Node2D" parent="."]
-
-[node name="Machine" parent="." instance=ExtResource( 5 )]
-
 [node name="Instructions" type="VBoxContainer" parent="."]
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 71.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,5 +30,22 @@ margin_bottom = 71.0
 theme = ExtResource( 2 )
 custom_fonts/font = ExtResource( 3 )
 align = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 0.705882, 0.705882, 0.705882, 1 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 50, 50 )
+format = 1
+
+[node name="TileMapKill" type="TileMap" parent="." groups=["tile_kill"]]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 50, 50 )
+format = 1
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
+
+[node name="Energy" type="Node2D" parent="."]
+
+[node name="Machine" parent="." instance=ExtResource( 5 )]
 
 [connection signal="win" from="Machine" to="." method="_on_Machine_win"]
