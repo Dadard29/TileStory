@@ -155,7 +155,7 @@ one_shot = true
 process_material = SubResource( 3 )
 texture = ExtResource( 8 )
 
-[node name="Particles2D" type="Particles2D" parent="FullRect/Panel/Center/VB/Score/ScorePanel/ScoreBox/ScoreValueBox"]
+[node name="EnergyMediumParticles" type="Particles2D" parent="FullRect/Panel/Center/VB/Score/ScorePanel/ScoreBox/ScoreValueBox"]
 emitting = false
 amount = 4
 one_shot = true

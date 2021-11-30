@@ -3,6 +3,9 @@ extends HBoxContainer
 
 onready var tween = $ScoreTween
 onready var score = $ScoreValue
+onready var neutral_particles = $NeutralParticles
+onready var small_particles = $EnergySmallParticles
+onready var medium_particles = $EnergyMediumParticles
 
 export(int) var SCORE_TWEEN_DURATION = 1
 
@@ -14,6 +17,11 @@ func _update_score_value(value: int):
 	score.set_text(String(value))
 
 func set_score_value(new_value: int):
+	
+	neutral_particles.set_emitting(true)
+	small_particles.set_emitting(true)
+	medium_particles.set_emitting(true)
+	
 	if tween.is_active():
 		tween.stop_all()
 		_update_score_value(new_value)
