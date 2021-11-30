@@ -26,3 +26,23 @@ position = Vector2( 680, -330 )
 
 [node name="Machine" parent="." index="4"]
 position = Vector2( 520, 0 )
+
+[node name="Instructions" parent="." index="5"]
+margin_left = 260.0
+margin_top = -390.0
+margin_right = 502.0
+margin_bottom = -219.0
+
+[node name="Important" parent="Instructions" index="0"]
+margin_right = 242.0
+margin_bottom = 89.0
+text = "They may be
+obstacles"
+
+[node name="Tip" parent="Instructions" index="1"]
+margin_top = 93.0
+margin_right = 242.0
+margin_bottom = 171.0
+text = "Collect all the energy
+particles to win
+bonus points"

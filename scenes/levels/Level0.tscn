@@ -37,3 +37,22 @@ position = Vector2( 120, 30 )
 
 [node name="Machine" parent="." index="4"]
 position = Vector2( 940, 0 )
+
+[node name="Instructions" parent="." index="5"]
+margin_left = 230.0
+margin_top = -250.0
+margin_right = 591.0
+margin_bottom = -106.0
+
+[node name="Important" parent="Instructions" index="0"]
+margin_right = 361.0
+margin_bottom = 89.0
+text = "Your objective is
+to load the machine"
+
+[node name="Tip" parent="Instructions" index="1"]
+margin_top = 93.0
+margin_right = 361.0
+margin_bottom = 144.0
+text = "Collect the energy particles
+and deliver them to the machine"
