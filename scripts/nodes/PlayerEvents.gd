@@ -6,8 +6,7 @@ onready var _jump_anim_left = $JumpEvent/JumpAnimationLeft
 onready var _jump_anim_right = $JumpEvent/JumpAnimationRight
 
 onready var _land_event = $LandEvent
-onready var _land_event_particles = $LandEvent/Particles2D
-
+onready var _land_event_particles = $LandEvent/LandParticles
 
 const _ANIMATION_JUMP = "jump"
 

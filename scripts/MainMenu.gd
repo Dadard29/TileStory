@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 onready var full_rect = $FullRect
-onready var level_box = $FullRect/CenterContainer/VB/LevelSelection/VBoxContainer/LevelBox
+onready var level_box = $FullRect/CenterContainer/VB/LevelSelection/LevelPanel/LevelVBox/LevelBox
+onready var score_value = $FullRect/CenterContainer/VB/Score/ScorePanel/ScoreBox/ScoreValue
 
 signal level(level_path)
 
@@ -66,6 +67,10 @@ func hide():
 
 func show():
 	full_rect.set_visible(true)
+
+func set_score(new_score: int):
+	var score = String(new_score) + " pts"
+	score_value.set_text(score)
 
 func _on_QuitButton_pressed() -> void:
 	get_tree().quit()

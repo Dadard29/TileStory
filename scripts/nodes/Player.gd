@@ -23,7 +23,7 @@ export(bool) var energy_infinite_debug = false
 signal jumped
 signal landed
 signal loading
-signal death
+signal death(position, energy_used)
 
 func _ready():
 	self.set_physics_process(false)
@@ -47,6 +47,9 @@ func _on_Kinematic_landed(position: Vector2, orient_type) -> void:
 	emit_signal("landed", position, orient_type)
 
 # ===== ENERGY =====
+func get_energy():
+	return _energy
+
 func _on_Kinematic_energy_found(area: Area2D) -> void:
 	var previous_energy = _energy
 	if area.is_in_group(ENERGY_SMALL_GROUP):

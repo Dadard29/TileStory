@@ -21,6 +21,7 @@ var _previous_is_on_floor = true
 onready var anim = $Animations
 onready var sounds = $Sounds
 onready var camera = $Camera
+onready var death_particles = $DeathParticles
 
 # signals
 signal jumped
@@ -155,9 +156,12 @@ func update_collision():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider.is_in_group(TILE_KILL_GROUP):
-			# dies
+			# die animation
 			self.sounds.death()
 			self.anim.set_death()
+			var energy_used = get_parent().get_energy()
+			self.death_particles.set_amount(energy_used)
+			self.death_particles.set_emitting(true)
 			get_parent().set_physics_process(false)
 
 func update_direction_and_velocity(delta):

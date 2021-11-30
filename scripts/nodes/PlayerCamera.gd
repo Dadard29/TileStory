@@ -9,7 +9,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func loading_zoom():
-	print("zooming")
 	var initial = Vector2(1, 1)
 	var final = Vector2(0.5, 0.5)
 	tween.interpolate_method(self, "set_zoom", initial, final,

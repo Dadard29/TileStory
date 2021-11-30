@@ -5,6 +5,9 @@ onready var loading_sound = $Sounds/LoadingSound
 onready var win_sound = $Sounds/WinSound
 
 const ANIMATION_LOADING = "loading"
+const ANIMATION_WIN = "win"
+
+signal win
 
 func play_loading():
 	if anim.get_animation() != ANIMATION_LOADING or not anim.is_playing():
@@ -21,3 +24,6 @@ func _on_Animations_animation_finished() -> void:
 
 		if not win_sound.is_playing():
 			win_sound.play()
+		
+		anim.play(ANIMATION_WIN)
+		emit_signal("win")
