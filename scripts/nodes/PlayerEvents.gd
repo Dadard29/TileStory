@@ -8,6 +8,7 @@ onready var _jump_anim_right = $JumpEvent/JumpAnimationRight
 onready var _land_event = $LandEvent
 onready var _land_event_particles = $LandEvent/LandParticles
 
+
 const _ANIMATION_JUMP = "jump"
 
 const ORIENT_T = preload("res://scripts/classes/OrientationsType.gd").ORIENT_TYPE
@@ -52,3 +53,10 @@ func _on_Player_landed(position: Vector2, orient_type) -> void:
 	_land_event.set_rotation_degrees(_rotation)
 	_land_event.set_position(position)
 	_land_event_particles.set_emitting(true)
+
+#func _process(delta: float) -> void:
+#	pass
+#	if get_parent().has_node("Player"):
+#		var player = get_parent().get_node("Player").get_node("Kinematic")
+#		_trail.update_points(player.get_global_position())
+		
