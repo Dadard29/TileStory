@@ -11,7 +11,7 @@ const LEVEL_BASE = "res://scenes/levels/"
 
 
 var level_selector = preload("res://scenes/LevelSelector.tscn")
-var levels_names: Array = [
+export(Array) var levels_names: Array = [
 	"Awake", "Power Up", "Beware", "Optional", "Bounce it", "Slow motion"
 ]
 var level_default_icon = preload("res://images/icons/player_icon.png")

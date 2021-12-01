@@ -27,7 +27,6 @@ func set_score_value(new_value: int):
 		_update_score_value(new_value)
 	else:
 		var old_value = int(score.get_text())
-		print(old_value)
 		tween.interpolate_method(self, "_update_score_value", old_value, new_value,
 			SCORE_TWEEN_DURATION, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		tween.start()
